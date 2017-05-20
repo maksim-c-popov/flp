@@ -1,0 +1,95 @@
+ Adygey<>01
+ Altay<>04
+ Altayskiy<>22
+ Amur<>28
+ Arkhangel'sk<>29
+ Astrakhan'<>30
+ Bashkortostan<>02
+ Belgorod<>31
+ Bryansk<>32
+ Buryatiya, Republic<>03
+ Chechnya<>20
+ Chelyabinsk<>74
+ Chukotskiy Avtonomnyy Okrug<>87
+ Chuvash<>21
+ Dagestan<>05
+ Ingushetia<>06
+ Irkutsk<>38
+ Irkutsk<>85
+ Ivanovo<>37
+ Kabardin-Balkar<>07
+ Kaliningrad<>39
+ Kaliningrad<>91
+ Kalmyk<>08
+ Kaluga<>40
+ Kamchatka<>41
+ Karachay-Cherkess<>09
+ Karelia<>10
+ Kemerovo<>42
+ Khabarovsk<>27
+ Khakass<>19
+ Khanty-Mansiyskiy Avtonomnyy Okrug<>86
+ Kirov<>43
+ Komi<>11
+ Kostroma<>44
+ Krasnodar<>23
+ Krasnodar<>93
+ Krasnoyarsk<>24
+ Krasnoyarsk<>84
+ Krasnoyarsk<>88
+ Kurgan<>45
+ Kursk<>46
+ Leningrad<>47
+ Lipetsk<>48
+ Magadanskaya Oblast’<>49
+ Mariy-El<>12
+ Mordovia<>13
+ Moskovsskaya<>50
+ Moskovsskaya<>90
+ Moskva (city)<>77
+ Moskva (city)<>97
+ Moskva (city)<>99
+ Murmansk<>51
+ Nenets<>83
+ Nizhny Novgorod<>52
+ Novgorod<>53
+ Novosibirsk<>54
+ Omsk<>55
+ Orenburg<>56
+ Orlovskaya<>57
+ Penza<>58
+ Perm<>59
+ Perm<>81
+ Primorsky<>25
+ Pskov<>60
+ Respublika Severnaya Osetiya-Alaniya<>15
+ Rostov<>61
+ Ryazan<>62
+ Sakhalin<>65
+ Sakha Republic<>14
+ Samara<>63
+ Sankt-Peterburg<>78
+ Sankt-Peterburg<>98
+ Saratov<>64
+ Smolensk<>67
+ Stavropol'<>26
+ Sverdlovsk<>66
+ Sverdlovsk<>96
+ Tambov<>68
+ Tatarstan<>16
+ Tomsk<>70
+ Tula<>71
+ Tuva<>17
+ Tver<>69
+ Tyumen<>72
+ Udmurt<>18
+ Ulyanovsk<>73
+ Vladimir<>33
+ Volgograd<>34
+ Vologda<>35
+ Voronezh<>36
+ Yamal-Nenets<>89
+ Yaroslavl<>76
+ Yevrey<>79
+ Zabaikalski Kray<>75
+ Zabaikalski Kray<>80
