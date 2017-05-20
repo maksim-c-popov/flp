@@ -1,0 +1,64 @@
+
+--Создаем временную таблицу, состоящую из строк, считанных из сгенерированного файла
+create table temp_deals (col_value STRING);
+
+LOAD DATA INPATH '/user/raj_ops/output/part-r-00000' OVERWRITE INTO TABLE temp_deals;
+
+
+
+--Создаем таблицу сделок, записывая туда данные из верменной таблицы
+CREATE TABLE deals (declaration_number STRING, inn DOUBLE, deal_date STRING, first_inn DOUBLE, sum1 DOUBLE, second_inn DOUBLE, sum2 DOUBLE);
+
+insert overwrite table deals
+SELECT
+  regexp_extract(col_value, 'number=\'(.*)(\' inn=)', 1) declaration_number,
+  regexp_extract(col_value, 'inn=\'(.*)(\'><invoices>)', 1) inn,
+  regexp_extract(col_value, 'date=\'(.*)(\'><bargainer)', 1) deal_date,
+  regexp_extract(col_value, '\'><bargainer inn=\'(.*)(\'><summ>)(.*)(<bargainer)', 1) first_inn,
+  regexp_extract(col_value, '<summ>(.*)(</summ>)(.*)(<bargainer)', 1) sum1,
+  regexp_extract(col_value, 'r><bargainer inn=\'(.*)(\'><summ>)', 1) second_inn,
+  regexp_extract(col_value, '</bargainer>(.*)<summ>(.*)(</summ>)', 2) sum2
+from temp_deals;
+
+
+
+--Аналогично для таблцы регионов (хотя да, можно было сразу сделать в виде нормальной таблицы в csv формате)
+CREATE TABLE temp_regions (col_value STRING);
+
+LOAD DATA INPATH '/user/raj_ops/regions.txt' OVERWRITE INTO TABLE temp_regions;
+
+CREATE TABLE regions (region_name STRING, code DOUBLE);
+
+insert overwrite table regions
+SELECT
+  regexp_extract(col_value, ' (.*)(<>)', 1) region_name,
+  regexp_extract(col_value, '<>(.*)', 1) code
+from temp_regions;
+
+
+
+--Таблица с добавлением колонки с именем региона (для таблу)
+CREATE TABLE deals_with_regions AS
+SELECT deals.*, regions.region_name
+FROM deals
+JOIN regions ON FLOOR(deals.inn / 100000000) = regions.code;
+
+
+
+--Проверяем сколько всего сделок получилось
+SELECT COUNT (*) FROM deals_with_regions;
+
+
+
+--Проверяем сколько из них без ошибок в столбце с инн второго участника сделки
+SELECT COUNT (*) 
+FROM deals_with_regions 
+WHERE (deals_with_regions.second_inn) IN (SELECT first_inn FROM deals_with_regions);
+
+
+
+--Оно же, только запись в таблицу
+CREATE TABLE correct_deals AS
+SELECT deals_with_regions.*
+FROM deals_with_regions 
+WHERE (deals_with_regions.second_inn) IN (SELECT first_inn FROM deals_with_regions);
